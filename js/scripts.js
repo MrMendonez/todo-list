@@ -3,17 +3,46 @@
 // Variables
 var i;
 var remove = document.getElementsByClassName('remove-button');
+var strikethrough = document.getElementsByClassName('strikethrough-button');
+var task = document.getElementsByClassName('task');
 var add = document.getElementById('addButton');
 
 // Eventlistener for remove button
 for (i = 0; i < remove.length; i++) {
-  remove[i].addEventListener("click", rowRemove); 
+  remove[i].addEventListener('click', rowRemove); 
 };
 
 // Function to remove row
 function rowRemove() {
   this.parentNode.parentNode.remove();
 };
+
+// Eventlistener for strikethrough button
+for (i = 0; i < strikethrough.length; i++) {
+  strikethrough[i].addEventListener('click', rowStrikethrough);
+};
+
+
+// Function to strikeout completed task
+function rowStrikethrough() {
+  if (this.getAttribute('data-strikethrough') === 'false') {
+    this.setAttribute('data-strikethrough', 'true');
+    console.log("this = " + this);
+    console.log(this.parentNode.previousSibling.previousSibling);
+    this.parentNode.previousSibling.previousSibling.setAttribute('class', 'task strikethrough');
+  } else {
+    console.log("rowStrikethrough function did not run")
+  }
+};
+
+
+
+
+  // for (i = 0; i < task.length; i++) {
+  //   task[i].setAttribute('class', 'task strikethrough')
+  // }
+
+
 
 // Eventlistener for add button
 // add.addEventListener("click", rowAdd);

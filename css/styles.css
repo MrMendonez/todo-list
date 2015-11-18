@@ -1,5 +1,9 @@
 /* Styles for To Do List App */
 
+.strikethrough {
+  text-decoration: line-through;
+}
+
 /* Social Media Buttons */
 
 /* Linked-in */

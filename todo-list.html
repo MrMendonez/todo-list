@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+  <title>Check</title>
   <link rel="stylesheet" type="text/css" href="css/slate.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="css/styles.css">
@@ -9,14 +9,12 @@
 <body>
   <nav class="navbar navbar-inverse navbar-static-top">
     <div class="container">
-        <a class="navbar-brand" href="https://frightening-wizard-3651.herokuapp.com/" target="blank">Check <i class="fa fa-check-circle"></i></a>
+        <a class="navbar-brand" href="#" target="blank">Check <i class="fa fa-check-circle"></i></a>
         <div class = "collapse navbar-collapse  navHeaderCollapse">
             <ul class = "nav navbar-nav navbar-right">
-
                 <li><a href = "#contact" data-toggle="modal">Contact</a></li>
             </ul>
         </div>
-
     </div>
   </nav>
   <header>
@@ -27,8 +25,62 @@
       </div> <!-- jumbotron -->
     </div> <!-- container -->
   </header>
-  <main>
+  <main class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">To Do List</h3>
+          </div>
+          <div class="panel-body">
+            <table class="table table-striped">
+              <thead>
+                <tr id="headerRow">
+                  <th>List Title</th>
+                  <th>Completed</th>
+                  <th>Remove</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="first">Go round mums</td>
+                  <td><button type="button" class="btn btn-success"><i class="fa fa-check"></i></button></td>
+                  <td><button type="button" class="btn btn-danger remove-button"><i class="fa fa-times"></i></button></td>
+                </tr>
+                <tr>
+                  <td class="first">Get Liz back</td>
+                  <td><button type="button" class="btn btn-success"><i class="fa fa-check"></i></button></td>
+                  <td><button type="button" class="btn btn-danger remove-button"><i class="fa fa-times"></i></button></td>
+                </tr>
+                <tr>
+                  <td class="first">Sort life out!</td>
+                  <td><button type="button" class="btn btn-success"><i class="fa fa-check"></i></button></td>
+                  <td><button type="button" class="btn btn-danger remove-button"><i class="fa fa-times"></i></button></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <form id="form">
+                    <!-- <tr>
+                      <th class="borderless" colspan="3">Add Student</th>
+                    </tr> -->
+                    <td>
+                      <div class="form-group">
+                        <input type="task" class="form-control" id="new-task" placeholder="New Task">
+                      </div>
+                    </td>
+                    <td><button type="button" class="btn btn-warning" id="addButton"><i class="fa fa-plus"></i></button></td>
+                  </form>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div> <!-- panel panel-primary -->
+      </div> <!-- col-md-9 -->
+      <div class="col-md-3">
 
+      </div> <!-- end col-md-3 -->
+    </div> <!-- end row -->
   </main>
   <footer id ="footer" class="navbar navbar-inverse navbar-fixed-bottom">
     <div class ="container">
@@ -73,5 +125,6 @@
   </aside>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="js/scripts.js"></script>
 </body>
 </html>

@@ -16,7 +16,7 @@ $(document).ready(function() {
     });
 
     if(isDuplicate) {
-      $(".alert-danger").slideDown();
+      $(".alert-danger").slideDown(1000);
       return;
     }
 

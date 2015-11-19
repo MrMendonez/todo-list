@@ -22,10 +22,12 @@ $(document).ready(function() {
 
     var newRow = $("<tr>");
     var wordTd = $("<td>").addClass("word-td").append(newWord);
+    var completedBtn = $("<button>").addClass("btn btn-success strikethrough-button").append('<i class="fa fa-check">');
+    var completedTd = $("<td>").append(completedBtn);
     var deleteBtn = $("<button>").addClass("btn btn-danger").append('<i class="fa fa-times"></i>');
     var deleteTd = $("<td>").append(deleteBtn);
 
-    newRow.append(wordTd).append(deleteTd);
+    newRow.append(wordTd).append(completedTd).append(deleteTd);
     $("tbody").append(newRow);
 
     $("#newWord").val("").focus();

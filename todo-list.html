@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Check</title>
-  <link rel="stylesheet" type="text/css" href="css/slate.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.5/slate/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
@@ -66,10 +66,15 @@
                     </tr> -->
                     <td>
                       <div class="form-group">
-                        <input type="task" class="form-control" id="new-task" placeholder="New Task">
+                        <input type="task" class="form-control" id="newWord" placeholder="Add New Task">
                       </div>
                     </td>
-                    <td><button type="button" class="btn btn-warning" id="addButton"><i class="fa fa-plus"></i></button></td>
+                    <td>
+                      <button type="button" class="btn btn-warning" id="addButton"><i class="fa fa-plus"></i></button>
+                      <div class="alert alert-danger" role="alert">
+                      You already have an element with that word!
+                      </div>
+                    </td>
                   </form>
                 </tr>
               </tfoot>
@@ -123,7 +128,7 @@
       </div>
     </div>
   </aside>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
   <script type="text/javascript" src="js/scripts.js"></script>
 </body>

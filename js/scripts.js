@@ -4,6 +4,7 @@ $(document).ready(function() {
   // Hide duplicate message
   $(".alert-danger").hide();
 
+  // ADD NEW TASK
   $(".btn-warning").on("click", function(e) {
     e.preventDefault();  // Prevent submit button from submitting text to the page
 
@@ -24,7 +25,7 @@ $(document).ready(function() {
     // Inserts new row with new task item
     var newRow = $("<tr>");
     var wordTd = $("<td>").addClass("word-td").append(newWord);
-    var completedBtn = $("<button>").addClass("btn btn-success strikethrough-button").append('<i class="fa fa-check">');
+    var completedBtn = $("<button>").addClass("btn btn-default").append('<i class="fa fa-square-o">');
     var completedTd = $("<td>").append(completedBtn);
     var deleteBtn = $("<button>").addClass("btn btn-danger").append('<i class="fa fa-trash-o"></i>');
     var deleteTd = $("<td>").append(deleteBtn);
@@ -40,121 +41,18 @@ $(document).ready(function() {
     $(".alert-danger").fadeOut(1500);
 
   })
+  // End add new task
+
+  // REMOVE ROW
+  // var rotatingTrashCan = ("<i>").addClass("fa fa-trash-o fa-spin");
+  $("table").on("click", ".btn-danger", function() { // Remove button clicked...
+    $(this).parent().parent().remove(); // Remove entire row
+  });
+
+  //COMPLETED TASK
+  $("table").on("click", ".btn-default", function(){
+    $(this).replaceWith($("<button>").addClass("btn btn-success").attr("type", "button").append("<i>").addClass("fa fa-check-square-o"));
+    // console.log("this = " + this);
+    // $(this).parent().prev().addClass("strikethrough");
+  });
 });
-
-// Variables
-var i;
-var remove = document.getElementsByClassName('remove-button');
-var strikethrough = document.getElementsByClassName('strikethrough-button');
-var task = document.getElementsByClassName('task');
-var add = document.getElementById('addButton');
-
-// Eventlistener for remove button
-for (i = 0; i < remove.length; i++) {
-  remove[i].addEventListener('click', rowRemove); 
-};
-
-// Function to remove row
-function rowRemove() {
-  this.parentNode.parentNode.remove();
-};
-
-// Eventlistener for strikethrough button
-for (i = 0; i < strikethrough.length; i++) {
-  strikethrough[i].addEventListener('click', rowStrikethrough);
-};
-
-// Function to strikeout completed task
-function rowStrikethrough() {
-  if (this.getAttribute('data-strikethrough') === 'false') {
-    this.setAttribute('data-strikethrough', 'true');
-    console.log("this = " + this);
-    console.log(this.parentNode.previousSibling.previousSibling);
-    this.parentNode.previousSibling.previousSibling.setAttribute('class', 'task strikethrough');
-  } else {
-    console.log("rowStrikethrough function did not run")
-  }
-};
-
-
-
-
-  // for (i = 0; i < task.length; i++) {
-  //   task[i].setAttribute('class', 'task strikethrough')
-  // }
-
-
-
-// Eventlistener for add button
-// add.addEventListener("click", rowAdd);
-
-// Function to add row
-// function rowAdd() {
-//   var firstName = document.getElementById("firstName").value;
-//   var lastName = document.getElementById("lastName").value;
-//   var email = document.getElementById("email").value;
-//   var table = document.getElementsByTagName("tbody")[0];
-//   var newRowEl = document.createElement("tr");
-//   var inputsArray = [];
-//   var elementText;
-//   var firstNamesList = document.getElementsByClassName("first");
-//   if (firstNamesList.constructor === Array) {
-//     console.log("firstNamesList is an Array");
-//   } else {
-//     console.log("firstNamesList is not an Array");
-//   };
-//   for (i = 0; i < firstNamesList.length; i++) {
-//     firstNamesList = firstNamesList.innerHTML;
-//     console.log("firstNamesList Values: " + firstNamesList);
-//   };
-
-
-//   console.log(firstNamesList);
-//   // Check for empty text fields
-//   if ((firstName === "") || (lastName === "") || (email === "")) {
-//     inputsArray = document.getElementsByTagName("input");
-//     for (i = 0; i < inputsArray.length; i++) {
-//       if (inputsArray[i].value === "") {
-//         switch(i) {
-//           case 0:
-//             elementText = "first";
-//             break;
-
-//           case 1:
-//             elementText = "second";
-//             break;
-
-//           case 2:
-//             elementText = "third";
-//             break;
-//         }
-//         alert("You have an empty input in the " + elementText + " input");
-//         break;
-//         // } else if ((firstName === firstNamesList[i]) && (lastName === lastNamesList[i]) && (e-mail === emailsList[i]) { // check for duplicate entries
-        
-
-
-
-
-
-
-//       } else { // add HTML for each new row
-//       newRowEl.setAttribute("class", "visible inflow");
-//       newRowEl.setAttribute("data-visible", "true");
-//       newRowEl.innerHTML = "<td>" + firstName + "</td> \
-//                       <td>" + lastName + "</td> \
-//                       <td>" + email + "</td> \
-//                       <td><button type='button' class='btn btn-danger \ removeButton'><i class='fa fa-times'></i></button></td>";
-//       table.appendChild(newRowEl);
-//       // Set Eventlisteners to listen to new buttons from added rows
-//       add.addEventListener("click", rowAdd);  
-//       for (i = 0; i < remove.length; i++) {
-//         remove[i].addEventListener("click", rowRemove); 
-//       };
-//       // Reset form fields back to place-holders
-//       var form = document.getElementById("form");
-//       form.reset();
-//       }
-//     }
-//   }
-// };

@@ -65,12 +65,15 @@ $(document).ready(function() {
   $("table").on("click", ".btn-danger", function() {
     var fire = $("<span>").addClass("glyphicon glyphicon-fire").attr("aria-hidden", "true");
     $(this).replaceWith($("<button>").attr("type", "button").addClass("btn btn-danger btn-width").append(fire));
-    fire.fadeIn(2000, function(){
-      console.log(this);
-      $(this).closest("tr").fadeOut(1000); // Remove entire row
+    fire.hide();
+    fire.fadeIn(1500, function(){
+        $(this).closest("tr").fadeOut(1000, function(){
+          $(this).remove();
+        });
     });
   });
 });
+
 
 // TO DO LIST (Oh the irony):
 // Make spinning gear icon when adding a new task

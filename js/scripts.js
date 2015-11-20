@@ -43,16 +43,25 @@ $(document).ready(function() {
   })
   // End add new task
 
+  //COMPLETED TASK
+  $("table").on("click", ".btn-default", function(){
+    var checked = $("<i>").addClass("fa fa-check-square-o");
+    $(this).replaceWith($("<button>").attr("type", "button").addClass("btn btn-success").append(checked));
+    $(this).parent().prev().css("text-decoration", "line-through")
+  });
+
   // REMOVE ROW
   // var rotatingTrashCan = ("<i>").addClass("fa fa-trash-o fa-spin");
-  $("table").on("click", ".btn-danger", function() { // Remove button clicked...
+  $("table").on("click", ".btn-danger", function() { // Remove button when clicked...
     $(this).parent().parent().remove(); // Remove entire row
   });
 
-  //COMPLETED TASK
-  $("table").on("click", ".btn-default", function(){
-    $(this).replaceWith($("<button>").addClass("btn btn-success").attr("type", "button").append("<i>").addClass("fa fa-check-square-o"));
-    // console.log("this = " + this);
-    // $(this).parent().prev().addClass("strikethrough");
-  });
 });
+
+// TO DO LIST (Oh the irony):
+// Figure out strikethrough
+// Add smiley face animation when marked complete
+// Make delete animation when remove button is clicked
+// Make ability to uncheck completed items
+
+

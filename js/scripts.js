@@ -73,6 +73,6 @@ $(document).ready(function() {
 });
 
 // TO DO LIST (Oh the irony):
-// Make delete animation when remove button is clicked
+// Make spinning gear icon when adding a new task
 
 

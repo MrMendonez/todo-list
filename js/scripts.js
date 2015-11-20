@@ -35,12 +35,21 @@ $(document).ready(function() {
     // Set newWord to become an empty string and clears the input field.
     // Also sets the focus back onto the input field. 
     $("#newWord").val("").focus();
-  });
-  // Fade out duplicate entry message when user begins typing again in input field
-  $("#newWord").on("keydown", function() {
-    $(".alert-danger").fadeOut(1000);
 
-  })
+    // Fade out duplicate entry message when user begins typing again in input field
+    $("#newWord").on("keydown", function() {
+      $(".alert-danger").fadeOut(1000);
+    });
+
+    // Rotating gears icon
+    // var rotatingGear = $("<i>").addClass("fa fa-cog fa-spin");
+    // $(this).replaceWith($("<button>").attr("type", "submit").addClass("btn btn-warning btn-block").append(rotatingGear));
+    // rotatingGear.hide().fadeIn(1500).delay(500).fadeOut(500, function(){
+    //   var plusSign = $("<i>").addClass("fa fa-plus").hide().fadeIn(500);
+    //   $(this).replaceWith($(plusSign));
+    // });
+    
+  });
   // End add new task
 
   // Mark complete
@@ -61,15 +70,13 @@ $(document).ready(function() {
   });
 
   // Remove row
-  // var rotatingTrashCan = ("<i>").addClass("fa fa-trash-o fa-spin");
   $("table").on("click", ".btn-danger", function() {
     var fire = $("<span>").addClass("glyphicon glyphicon-fire").attr("aria-hidden", "true");
     $(this).replaceWith($("<button>").attr("type", "button").addClass("btn btn-danger btn-width").append(fire));
-    fire.hide();
-    fire.fadeIn(1500, function(){
+    fire.hide().fadeIn(1500, function(){
         $(this).closest("tr").fadeOut(1000, function(){
-          $(this).remove();
-        });
+        $(this).remove();
+      });
     });
   });
 });
@@ -77,5 +84,7 @@ $(document).ready(function() {
 
 // TO DO LIST (Oh the irony):
 // Make spinning gear icon when adding a new task
+// Make new row fade in
+// Name To Do list input
 
 

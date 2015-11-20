@@ -1,7 +1,6 @@
 // Scripts for To Do List app
 
 $(document).ready(function() {
-  alert('some-unique-string');
   // Hide duplicate message
   $(".alert-danger").hide();
 

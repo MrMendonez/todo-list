@@ -18,7 +18,7 @@ $(document).ready(function() {
       }
     });
     // Runs duplicate entry message
-    if(isDuplicate) {
+    if(isDuplicate){
       $(".alert-danger").slideDown(1000);
       return;
     }
@@ -43,25 +43,32 @@ $(document).ready(function() {
   })
   // End add new task
 
-  //COMPLETED TASK
+  // Mark complete
   $("table").on("click", ".btn-default", function(){
-    var checked = $("<i>").addClass("fa fa-check-square-o");
-    $(this).replaceWith($("<button>").attr("type", "button").addClass("btn btn-success").append(checked));
-    $(this).parent().prev().css("text-decoration", "line-through")
+    var check = $("<i>").addClass("fa fa-check-square-o");
+    $(this).replaceWith($("<button>").attr("type", "button").addClass("btn btn-success").append(check));
+    $(".btn-success").parent().prev().css("text-decoration", "line-through");
   });
 
-  // REMOVE ROW
+  // Mark not complete
+  $("table").on("click", ".btn-success", function(){
+    var uncheck = $("<i>").addClass("fa fa-square-o");
+    $(this).replaceWith($("<button>").attr("type", "button").addClass("btn btn-default").append(uncheck));
+    $(".btn-default").parent().prev().css("text-decoration", "none");
+  });
+
+  // Remove row
   // var rotatingTrashCan = ("<i>").addClass("fa fa-trash-o fa-spin");
-  $("table").on("click", ".btn-danger", function() { // Remove button when clicked...
+  $("table").on("click", ".btn-danger", function() {
+    console.log(this.parent());
     $(this).parent().parent().remove(); // Remove entire row
   });
 
 });
 
 // TO DO LIST (Oh the irony):
-// Figure out strikethrough
+// Figure out strikethrough and unstrikethrough
 // Add smiley face animation when marked complete
 // Make delete animation when remove button is clicked
-// Make ability to uncheck completed items
 
 

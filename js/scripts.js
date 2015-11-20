@@ -38,7 +38,7 @@ $(document).ready(function() {
   });
   // Fade out duplicate entry message when user begins typing again in input field
   $("#newWord").on("keydown", function() {
-    $(".alert-danger").fadeOut(1500);
+    $(".alert-danger").fadeOut(1000);
 
   })
   // End add new task

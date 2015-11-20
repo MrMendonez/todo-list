@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Check</title>
+  <title>Check &#x2713;</title>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.5/slate/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="css/styles.css">
@@ -33,7 +33,7 @@
             <h3 class="panel-title">To Do List</h3>
           </div>
           <div class="panel-body">
-            <table class="table table-striped">
+            <table class="table table-striped table-hover">
               <thead>
                 <tr id="headerRow">
                   <th>List Title</th>
@@ -41,46 +41,56 @@
                   <th>Remove</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="task-list">
                 <tr>
                   <td class="task word-td">Go round mums</td>
                   <td><button data-strikethrough="false" type="button" class="btn btn-success strikethrough-button"><i class="fa fa-check"></i></button></td>
-                  <td><button type="button" class="btn btn-danger remove-button"><i class="fa fa-times"></i></button></td>
+                  <td><button type="button" class="btn btn-danger remove-button"><i class="fa fa-trash-o"></i></button></td>
                 </tr>
                 <tr>
                   <td class="task word-td">Get Liz back</td>
                   <td><button data-strikethrough="false" type="button" class="btn btn-success strikethrough-button"><i class="fa fa-check"></i></button></td>
-                  <td><button type="button" class="btn btn-danger remove-button"><i class="fa fa-times"></i></button></td>
+                  <td><button type="button" class="btn btn-danger remove-button"><i class="fa fa-trash-o"></i></button></td>
                 </tr>
                 <tr>
                   <td class="task word-td">Sort life out!</td>
                   <td><button data-strikethrough="false" type="button" class="btn btn-success strikethrough-button"><i class="fa fa-check"></i></button></td>
-                  <td><button type="button" class="btn btn-danger remove-button"><i class="fa fa-times"></i></button></td>
+                  <td><button type="button" class="btn btn-danger remove-button"><i class="fa fa-trash-o"></i></button></td>
                 </tr>
               </tbody>
-              <tfoot>
-                <tr>
-                  <form id="form">
-                    <td>
-                      <div class="form-group">
-                        <input type="task" class="form-control" id="newWord" placeholder="Add New Task">
-                      </div>
-                    </td>
-                    <td>
-                      <button type="submit" class="btn btn-warning" id="addButton"><i class="fa fa-plus"></i></button>
-                    </td>
-                  </form>
-                  <div class="alert alert-danger" role="alert">
-                        You cannot post duplicate tasks.
-                      </div>
-                </tr>
-              </tfoot>
             </table>
           </div>
         </div> <!-- panel panel-primary -->
       </div> <!-- col-md-9 -->
       <div class="col-md-3">
-
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Add a New Task</h3>
+          </div>
+          <div class="panel-body">
+            <table class="table table-striped">
+              <tbody>
+                <tr>
+                  <form id="form">
+                    <td>
+                      <div class="form-group">
+                        <input type="task" class="form-control" id="newWord" placeholder="Get things done">
+                      </div>
+                      <div class="form-group">
+                        <button type="submit" class="btn btn-warning btn-block" id="addButton"><i class="fa fa-plus"></i></button>
+                      </div>
+                  </td>
+                  </form>
+                </tr>
+              </tbody>
+              <tfoot>
+                <div class="alert alert-danger" role="alert">
+                  You cannot post duplicate tasks.
+                </div>
+              </tfoot>
+            </table>
+          </div> <!-- end panel-body -->
+        </div> <!-- end panel panel-primary -->
       </div> <!-- end col-md-3 -->
     </div> <!-- end row -->
   </main>

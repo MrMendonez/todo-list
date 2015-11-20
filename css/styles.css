@@ -1,7 +1,7 @@
 /* Styles for To Do List App */
 
-.strikethrough {
-  text-decoration: line-through;
+.btn-width {
+    width: 39px !important;
 }
 
 /* Social Media Buttons */

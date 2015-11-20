@@ -45,8 +45,10 @@ $(document).ready(function() {
 
   // Mark complete
   $("table").on("click", ".btn-default", function(){
-    var check = $("<i>").addClass("fa fa-check-square-o");
-    $(this).replaceWith($("<button>").attr("type", "button").addClass("btn btn-success").append(check));
+    var smileAnimation = $("<i>").addClass("fa fa-smile-o").fadeIn(1000).delay(500).fadeOut(500);
+    var check = $("<i>").addClass("fa fa-check-square-o").hide().delay(2000).fadeIn(1000);
+
+    $(this).replaceWith($("<button>").attr("type", "button").addClass("btn btn-success btn-width").append(smileAnimation).append(check));
     $(".btn-success").parent().prev().css("text-decoration", "line-through");
   });
 
@@ -60,14 +62,12 @@ $(document).ready(function() {
   // Remove row
   // var rotatingTrashCan = ("<i>").addClass("fa fa-trash-o fa-spin");
   $("table").on("click", ".btn-danger", function() {
-    console.log(this.parent());
     $(this).parent().parent().remove(); // Remove entire row
   });
 
 });
 
 // TO DO LIST (Oh the irony):
-// Figure out strikethrough and unstrikethrough
 // Add smiley face animation when marked complete
 // Make delete animation when remove button is clicked
 

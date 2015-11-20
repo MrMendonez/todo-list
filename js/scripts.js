@@ -54,21 +54,25 @@ $(document).ready(function() {
 
   // Mark not complete
   $("table").on("click", ".btn-success", function(){
-    var uncheck = $("<i>").addClass("fa fa-square-o");
-    $(this).replaceWith($("<button>").attr("type", "button").addClass("btn btn-default").append(uncheck));
+    var meh = $("<i>").addClass("fa fa-meh-o").fadeIn(1000).delay(500).fadeOut(500);
+    var uncheck = $("<i>").addClass("fa fa-square-o").hide().delay(2000).fadeIn(1000);
+    $(this).replaceWith($("<button>").attr("type", "button").addClass("btn btn-default btn-width").append(meh).append(uncheck));
     $(".btn-default").parent().prev().css("text-decoration", "none");
   });
 
   // Remove row
   // var rotatingTrashCan = ("<i>").addClass("fa fa-trash-o fa-spin");
   $("table").on("click", ".btn-danger", function() {
-    $(this).parent().parent().remove(); // Remove entire row
+    var fire = $("<span>").addClass("glyphicon glyphicon-fire").attr("aria-hidden", "true");
+    $(this).replaceWith($("<button>").attr("type", "button").addClass("btn btn-danger btn-width").append(fire));
+    fire.fadeIn(2000, function(){
+      console.log(this);
+      $(this).closest("tr").fadeOut(1000); // Remove entire row
+    });
   });
-
 });
 
 // TO DO LIST (Oh the irony):
-// Add smiley face animation when marked complete
 // Make delete animation when remove button is clicked
 
 

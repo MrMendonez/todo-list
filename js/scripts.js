@@ -10,27 +10,25 @@ $(document).ready(function() {
     e.preventDefault();  // Prevent submit button from submitting text to the page
     var projectName = $("#project-name").val();
     var listTitle = $(".list-title");
-    var renameButton = $('<button id="project-rename-button" type="submit" class="btn btn-default">Rename Project</button>');
+    var renameButton = $('<button id="project-rename-button" type="submit" class="btn btn-default btn-block">Rename Project</button>');
 
     listTitle.replaceWith($("<h3>").addClass("list-title panel-title").append(projectName));
     $(".list-title").hide().fadeIn(1500);
     $("#project-name").delay(1000).fadeOut(1500);
     $("#project-name-button").delay(1000).fadeOut(1500);
     renameButton.hide().delay(2500).fadeIn(1500);
-    $(".list-title").append(renameButton);
-
-    // Rename Project
-    $("#project-rename-button").on("click", function(e) {
-      e.preventDefault(); // Still not sure what preventDefault does
-      $(".list-title").val("").focus();
-      $("#project-name").fadeIn(1500);
-      $("#project-name-button").fadeIn(1500);
-      $("#project-rename-button").delay(1500).fadeOut(1500);
-    });
+    $("#rename-placeholder").append(renameButton);
 
   });
 
-
+  // Rename Project
+  $("#project-rename-button").on("click", function(e) {
+    e.preventDefault(); // Still not sure what preventDefault does
+    $(".list-title").val("").focus();
+    $("#project-name").fadeIn(1500);
+    $("#project-name-button").fadeIn(1500);
+    $("#project-rename-button").delay(1500).fadeOut(1500);
+  });
 
   // Add New Task
   $(".btn-warning").on("click", function(e) {
@@ -47,13 +45,13 @@ $(document).ready(function() {
     });
     // Runs duplicate entry message
     if(isDuplicate){
-      $("#duplicate-msg").slideDown(1000);
+      $("#duplicate-msg").slideDown(500);
       return;
     }
 
     // Runs empty message
     if(newTask === ""){
-      $("#empty-msg").slideDown(1000);
+      $("#empty-msg").slideDown(500);
       return;
     }
 
@@ -73,7 +71,7 @@ $(document).ready(function() {
 
     // Fade out duplicate entry message when user begins typing again in input field
     $(".new-task").on("keydown", function() {
-      $(".alert-danger").fadeOut(1000);
+      $(".alert-danger").fadeOut(500);
     });
 
     // Rotating gears icon
@@ -119,6 +117,5 @@ $(document).ready(function() {
 
 
 // TO DO LIST (Oh the irony):
+// Why does checked button appear when clicking rename button?
 // Finish gear icon animation
-
-

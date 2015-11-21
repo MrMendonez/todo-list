@@ -21,16 +21,18 @@ $(document).ready(function() {
     renameButton.hide().delay(2500).fadeIn(1500);
     $("#rename-placeholder").append(renameButton);
 
+    // Rename Project
+    $("#project-rename-button").on("click", function(e) {
+      e.preventDefault(); // Still not sure what preventDefault does
+      $(".list-title").val("").focus();
+      $("#project-name").fadeIn(1500);
+      $("#project-name-button").fadeIn(1500);
+      $("#project-rename-button").delay(1000).fadeOut(500);
+    });
+
   });
 
-  // Rename Project
-  $("#project-rename-button").on("click", function(e) {
-    e.preventDefault(); // Still not sure what preventDefault does
-    $(".list-title").val("").focus();
-    $("#project-name").fadeIn(1500);
-    $("#project-name-button").fadeIn(1500);
-    $("#project-rename-button").delay(1500).fadeOut(1500);
-  });
+  
 
   // Add New Task
   $(".btn-warning").on("click", function(e) {
@@ -89,7 +91,7 @@ $(document).ready(function() {
   // End add new task
 
   // Mark complete
-  $("table").on("click", ".btn-default", function(){
+  $("table").on("click", ".unchecked", function(){
     var smileAnimation = $("<i>").addClass("fa fa-smile-o").fadeIn(1000).delay(500).fadeOut(500);
     var check = $("<i>").addClass("fa fa-check-square-o").hide().delay(2000).fadeIn(1000);
 
@@ -101,8 +103,8 @@ $(document).ready(function() {
   $("table").on("click", ".btn-success", function(){
     var meh = $("<i>").addClass("fa fa-meh-o").fadeIn(1000).delay(500).fadeOut(500);
     var uncheck = $("<i>").addClass("fa fa-square-o").hide().delay(2000).fadeIn(1000);
-    $(this).replaceWith($("<button>").attr("type", "button").addClass("btn btn-default btn-width").append(meh).append(uncheck));
-    $(".btn-default").parent().prev().css("text-decoration", "none");
+    $(this).replaceWith($("<button>").attr("type", "button").addClass("unchecked btn btn-default btn-width").append(meh).append(uncheck));
+    $(".unchecked").parent().prev().css("text-decoration", "none");
   });
 
   // Remove row

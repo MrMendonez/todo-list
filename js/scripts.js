@@ -62,7 +62,7 @@ $(document).ready(function() {
     // Inserts new row with new task item
     var newRow = $("<tr>");
     var wordTd = $("<td>").addClass("word-td").append(newTask);
-    var completedBtn = $("<button>").addClass("btn btn-default").append('<i class="fa fa-square-o">');
+    var completedBtn = $("<button>").addClass("unchecked btn btn-default").append('<i class="fa fa-square-o">');
     var completedTd = $("<td>").append(completedBtn);
     var deleteBtn = $("<button>").addClass("btn btn-danger").append('<i class="fa fa-trash-o"></i>');
     var deleteTd = $("<td>").append(deleteBtn);

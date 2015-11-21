@@ -93,7 +93,7 @@ $(document).ready(function() {
     var check = $("<i>").addClass("fa fa-check-square-o").hide().delay(2000).fadeIn(1000);
 
     $(this).replaceWith($("<button>").attr("type", "button").addClass("btn btn-success btn-width").append(smileAnimation).append(check));
-    $(".btn-success").parent().prev().css("text-decoration", "line-through");
+    $(".btn-success").parent().prev().css("text-decoration", "line-through").css("color", "#449D44");
   });
 
   // MARK NOT COMPLETE
@@ -101,7 +101,7 @@ $(document).ready(function() {
     var meh = $("<i>").addClass("fa fa-meh-o").fadeIn(1000).delay(500).fadeOut(500);
     var uncheck = $("<i>").addClass("fa fa-square-o").hide().delay(2000).fadeIn(1000);
     $(this).replaceWith($("<button>").attr("type", "button").addClass("unchecked btn btn-default btn-width").append(meh).append(uncheck));
-    $(".unchecked").parent().prev().css("text-decoration", "none");
+    $(".unchecked").parent().prev().css("text-decoration", "none").css("color", "white");
   });
 
   // REMOVE ROW
@@ -118,5 +118,5 @@ $(document).ready(function() {
 
 // TO DO LIST (Oh the irony):
 // Clear text field when renaming
-// Finish gear icon animation
 // Why doesn't rename button not work the second time?
+// Finish gear icon animation

@@ -72,13 +72,13 @@ $(document).ready(function() {
     });
 
     // Rotating gears icon
-    var rotatingGear = $("<i>").addClass("fa fa-cog fa-spin");
-    $(".btn-warning").replaceWith($("<button>").attr("type", "submit").addClass("btn btn-warning btn-block").append(rotatingGear));
-    rotatingGear.hide().fadeIn(1500).delay(500).fadeOut(500, function(){
-      var plusSign = $("<i>").addClass("fa fa-plus");
-      $(".btn-warning").replaceWith($("<button>").attr("type", "submit").addClass("btn btn-warning btn-block").append(plusSign));
-      plusSign.hide().fadeIn(500);
-    });
+    // var rotatingGear = $("<i>").addClass("fa fa-cog fa-spin");
+    // $(".btn-warning").replaceWith($("<button>").attr("type", "submit").addClass("btn btn-warning btn-block").append(rotatingGear));
+    // rotatingGear.hide().fadeIn(1500).delay(500).fadeOut(500, function(){
+    //   var plusSign = $("<i>").addClass("fa fa-plus");
+    //   $(".btn-warning").replaceWith($("<button>").attr("type", "submit").addClass("btn btn-warning btn-block").append(plusSign));
+    //   plusSign.hide().fadeIn(500);
+    // });
     // Commented out until I can figure out why this prevents duplicate message from working and deletes the row it duplicates.
 
   }); // End add new task
@@ -106,8 +106,8 @@ $(document).ready(function() {
     $(this).parent().prev().prev().css("color", "red");
     var fire = $("<span>").addClass("glyphicon glyphicon-fire").attr("aria-hidden", "true");
     $(this).replaceWith($("<button>").attr("type", "button").addClass("btn btn-danger btn-width").append(fire));
-    fire.hide().fadeIn(1500, function(){
-        $(this).closest("tr").fadeOut(1000, function(){
+    fire.hide().fadeIn(750, function(){
+        $(this).closest("tr").fadeOut(500, function(){
         $(this).remove();
       });
     });

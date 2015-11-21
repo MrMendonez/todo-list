@@ -86,8 +86,8 @@ $(document).ready(function() {
 
   // MARK COMPLETE
   $("table").on("click", ".unchecked", function(){
-    var smileAnimation = $("<i>").addClass("fa fa-smile-o").fadeIn(1000).delay(500).fadeOut(500);
-    var check = $("<i>").addClass("fa fa-check-square-o").hide().delay(2000).fadeIn(1000);
+    var smileAnimation = $("<i>").addClass("fa fa-smile-o").fadeIn(750).delay(250).fadeOut(500);
+    var check = $("<i>").addClass("fa fa-check-square-o").hide().delay(1500).fadeIn(1000);
 
     $(this).replaceWith($("<button>").attr("type", "button").addClass("btn btn-success btn-width").append(smileAnimation).append(check));
     $(".btn-success").parent().prev().css("text-decoration", "line-through").css("color", "#449D44");
@@ -95,8 +95,8 @@ $(document).ready(function() {
 
   // MARK NOT COMPLETE
   $("table").on("click", ".btn-success", function(){
-    var meh = $("<i>").addClass("fa fa-meh-o").fadeIn(1000).delay(500).fadeOut(500);
-    var uncheck = $("<i>").addClass("fa fa-square-o").hide().delay(2000).fadeIn(1000);
+    var meh = $("<i>").addClass("fa fa-meh-o").fadeIn(750).delay(250).fadeOut(500);
+    var uncheck = $("<i>").addClass("fa fa-square-o").hide().delay(1500).fadeIn(1000);
     $(this).replaceWith($("<button>").attr("type", "button").addClass("unchecked btn btn-default btn-width").append(meh).append(uncheck));
     $(".unchecked").parent().prev().css("text-decoration", "none").css("color", "white");
   });

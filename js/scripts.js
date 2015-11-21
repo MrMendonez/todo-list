@@ -10,7 +10,9 @@ $(document).ready(function() {
     e.preventDefault();  // Prevent submit button from submitting text to the page
     var projectName = $("#project-name").val();
     var listTitle = $(".list-title");
-    var renameButton = $('<button id="project-rename-button" type="submit" class="btn btn-default btn-block">Rename Project</button>');
+    var renameButton = $("<button>").attr("id", "project-rename-button").attr("type", "submit").addClass("btn btn-default btn-block")
+
+    renameButton.append("Rename Project");
 
     listTitle.replaceWith($("<h3>").addClass("list-title panel-title").append(projectName));
     $(".list-title").hide().fadeIn(1500);
@@ -119,3 +121,4 @@ $(document).ready(function() {
 // TO DO LIST (Oh the irony):
 // Why does checked button appear when clicking rename button?
 // Finish gear icon animation
+// Fix var renameButton

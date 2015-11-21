@@ -77,12 +77,12 @@ $(document).ready(function() {
     });
 
     // Rotating gears icon
-    // var rotatingGear = $("<i>").addClass("fa fa-cog fa-spin");
-    // $(this).replaceWith($("<button>").attr("type", "submit").addClass("btn btn-warning btn-block").append(rotatingGear));
-    // rotatingGear.hide().fadeIn(1500).delay(500).fadeOut(500, function(){
-    //   var plusSign = $("<i>").addClass("fa fa-plus").hide().fadeIn(500);
-    //   $(this).replaceWith($(plusSign));
-    // });
+    var rotatingGear = $("<i>").addClass("fa fa-cog fa-spin");
+    $(".btn-warning").closest("i").replaceWith($(rotatingGear));
+    rotatingGear.hide().fadeIn(1500).delay(500).fadeOut(500, function(){
+      var plusSign = $("<i>").addClass("fa fa-plus").hide().fadeIn(500);
+      $(this).closest("i").replaceWith($(plusSign));
+    });
     // Commented out until I can figure out why this prevents duplicate message from working and deletes the row it duplicates.
 
   });
@@ -121,4 +121,3 @@ $(document).ready(function() {
 // TO DO LIST (Oh the irony):
 // Why does checked button appear when clicking rename button?
 // Finish gear icon animation
-// Fix var renameButton

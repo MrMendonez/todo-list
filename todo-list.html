@@ -30,8 +30,20 @@
       <div class="col-md-9">
         <div class="panel panel-primary">
           <div class="panel-heading">
-            <h3 class="panel-title">To Do List</h3>
-          </div>
+            <form class="form-horizontal form-inline">
+              <div class="form-group">
+                <label class="col-sm-4 control-label">
+                  <h3 id="list-title" class="panel-title">To Do List</h3>
+                </label>
+                <div class="col-sm-6">
+                  <input id="project-name" type="text" class="form-control" placeholder="Title Your Project">
+                </div> <!--col-sm-6 -->
+                <div class="col-sm-2">
+                  <button id="project-name-button" type="submit" class="btn btn-default">Submit</button>
+                </div> <!-- col-sm-2 -->
+              </div> <!-- form-group -->
+            </form>
+          </div> <!--panel-heading -->
           <div class="panel-body">
             <table class="table table-striped table-hover">
               <thead>
@@ -75,7 +87,7 @@
                   <form id="form">
                     <td>
                       <div class="form-group">
-                        <input type="task" class="form-control" id="newWord" placeholder="Get things done">
+                        <input type="task" class="form-control" id="new-task" placeholder="Get things done">
                       </div>
                       <div class="form-group">
                         <button type="submit" class="btn btn-warning btn-block"><i class="fa fa-plus"></i></button>

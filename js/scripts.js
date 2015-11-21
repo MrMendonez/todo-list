@@ -4,15 +4,25 @@ $(document).ready(function() {
   // Hide duplicate message
   $(".alert-danger").hide();
 
-  // ADD NEW TASK
+
+  // Title Project Name
+  $("#project-name-button").on("click", function(e) {
+    e.preventDefault();  // Prevent submit button from submitting text to the page
+    var projectName = $("#project-name").val();
+    var listTitle = $("#list-title");
+    listTitle.replaceWith($("<h3>").attr("id", "list-title").addClass("panel-title").append(projectName));
+
+  });
+
+  // Add New Task
   $(".btn-warning").on("click", function(e) {
     e.preventDefault();  // Prevent submit button from submitting text to the page
 
-    var newWord = $("#newWord").val().trim();
+    var newTask = $("#new-task").val().trim();
     var isDuplicate = false;
     // Finds duplicate entries
     $("td.word-td").each(function(){
-      if($(this).text().trim().toLowerCase() === newWord.toLowerCase()) {
+      if($(this).text().trim().toLowerCase() === newTask.toLowerCase()) {
         isDuplicate = true;
         return;
       }
@@ -24,20 +34,20 @@ $(document).ready(function() {
     }
     // Inserts new row with new task item
     var newRow = $("<tr>");
-    var wordTd = $("<td>").addClass("word-td").append(newWord);
+    var wordTd = $("<td>").addClass("word-td").append(newTask);
     var completedBtn = $("<button>").addClass("btn btn-default").append('<i class="fa fa-square-o">');
     var completedTd = $("<td>").append(completedBtn);
     var deleteBtn = $("<button>").addClass("btn btn-danger").append('<i class="fa fa-trash-o"></i>');
     var deleteTd = $("<td>").append(deleteBtn);
 
-    newRow.append(wordTd).append(completedTd).append(deleteTd);
+    newRow.append(wordTd).append(completedTd).append(deleteTd).hide().fadeIn(2000);
     $("#task-list").append(newRow);
-    // Set newWord to become an empty string and clears the input field.
+    // Set newTask to become an empty string and clears the input field.
     // Also sets the focus back onto the input field. 
-    $("#newWord").val("").focus();
+    $("#new-task").val("").focus();
 
     // Fade out duplicate entry message when user begins typing again in input field
-    $("#newWord").on("keydown", function() {
+    $("#new-task").on("keydown", function() {
       $(".alert-danger").fadeOut(1000);
     });
 
@@ -48,7 +58,8 @@ $(document).ready(function() {
     //   var plusSign = $("<i>").addClass("fa fa-plus").hide().fadeIn(500);
     //   $(this).replaceWith($(plusSign));
     // });
-    
+    // Commented out until I can figure out why this prevents duplicate message from working and deletes the row it duplicates.
+
   });
   // End add new task
 
@@ -83,8 +94,7 @@ $(document).ready(function() {
 
 
 // TO DO LIST (Oh the irony):
-// Make spinning gear icon when adding a new task
-// Make new row fade in
+// Finish gear icon animation
 // Name To Do list input
 
 

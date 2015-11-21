@@ -1,9 +1,8 @@
-// Scripts for To Do List app
+// SCRIPTS FOR TO DO LIST APP
 
 $(document).ready(function() {
   // Hide duplicate message
   $(".alert-danger").hide();
-
 
   // TITLE PROJECT NAME
   $("#project-name-button").on("click", function(e) {
@@ -30,8 +29,6 @@ $(document).ready(function() {
       $("#project-rename-button").delay(1000).fadeOut(500);
     });
   });
-
-  
 
   // ADD NEW TASK
   $(".btn-warning").on("click", function(e) {
@@ -118,7 +115,6 @@ $(document).ready(function() {
     });
   });
 });
-
 
 // TO DO LIST (Oh the irony):
 // Clear text field when renaming

@@ -6,7 +6,7 @@ $(document).ready(function() {
 
   // TITLE PROJECT NAME
   $("#project-name-button").on("click", function(e) {
-    e.preventDefault();  // Prevent submit button from submitting text to the page
+    e.preventDefault();
     var projectName = $("#project-name").val();
     var listTitle = $(".list-title");
     var renameButton = $("<button>").attr("id", "project-rename-button").attr("type", "submit").addClass("btn btn-default btn-block")
@@ -22,8 +22,8 @@ $(document).ready(function() {
 
     // Rename Project
     $("#project-rename-button").on("click", function(e) {
-      e.preventDefault(); // Still not sure what preventDefault does
-      // $(".list-title").val("").focus();
+      e.preventDefault();
+      $(".list-title").val("").focus(); // Not sure why this isn't working
       $("#project-name").fadeIn(1500);
       $("#project-name-button").fadeIn(1500);
       $("#project-rename-button").delay(1000).fadeOut(500);
@@ -32,8 +32,7 @@ $(document).ready(function() {
 
   // ADD NEW TASK
   $(".btn-warning").on("click", function(e) {
-    e.preventDefault();  // Prevent submit button from submitting text to the page
-
+    e.preventDefault();  
     var newTask = $(".new-task").val().trim();
     var isDuplicate = false;
     // Finds duplicate entries
@@ -65,27 +64,25 @@ $(document).ready(function() {
 
     newRow.append(wordTd).append(completedTd).append(deleteTd).hide().fadeIn(2000);
     $("#task-list").append(newRow);
-    // Set newTask to become an empty string and clears the input field.
-    // Also sets the focus back onto the input field. 
     $(".new-task").val("").focus();
 
-    // Fade out duplicate entry message when user begins typing again in input field
+    // Fade out duplicate entry message on keydown
     $(".new-task").on("keydown", function() {
       $(".alert-danger").fadeOut(500);
     });
 
     // Rotating gears icon
-    // var rotatingGear = $("<i>").addClass("fa fa-cog fa-spin");
-    // $(".btn-warning").replaceWith($("<button>").attr("type", "submit").addClass("btn btn-warning btn-block").append(rotatingGear));
-    // rotatingGear.hide().fadeIn(1500).delay(500).fadeOut(500, function(){
-    //   var plusSign = $("<i>").addClass("fa fa-plus");
-    //   $(".btn-warning").replaceWith($("<button>").attr("type", "submit").addClass("btn btn-warning btn-block").append(plusSign));
-    //   plusSign.hide().fadeIn(500);
-    // });
+    var rotatingGear = $("<i>").addClass("fa fa-cog fa-spin");
+    $(".btn-warning").replaceWith($("<button>").attr("type", "submit").addClass("btn btn-warning btn-block").append(rotatingGear));
+    rotatingGear.hide().fadeIn(1500).delay(500).fadeOut(500, function(){
+      var plusSign = $("<i>").addClass("fa fa-plus");
+      $(".btn-warning").replaceWith($("<button>").attr("type", "submit").addClass("btn btn-warning btn-block").append(plusSign));
+      plusSign.hide().fadeIn(500);
+    });
     // Commented out until I can figure out why this prevents duplicate message from working and deletes the row it duplicates.
 
-  });
-  // End add new task
+  }); // End add new task
+  
 
   // MARK COMPLETE
   $("table").on("click", ".unchecked", function(){

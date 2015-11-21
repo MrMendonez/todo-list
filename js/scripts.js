@@ -11,7 +11,7 @@ $(document).ready(function() {
     var projectName = $("#project-name").val();
     var listTitle = $("#list-title");
     listTitle.replaceWith($("<h3>").attr("id", "list-title").addClass("panel-title").append(projectName));
-
+    $("#list-title").hide().fadeIn(1500);
   });
 
   // Add New Task
@@ -95,6 +95,5 @@ $(document).ready(function() {
 
 // TO DO LIST (Oh the irony):
 // Finish gear icon animation
-// Name To Do list input
 
 

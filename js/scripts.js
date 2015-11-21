@@ -106,6 +106,7 @@ $(document).ready(function() {
 
   // REMOVE ROW
   $("table").on("click", ".btn-danger", function() {
+    $(this).parent().prev().prev().css("color", "red");
     var fire = $("<span>").addClass("glyphicon glyphicon-fire").attr("aria-hidden", "true");
     $(this).replaceWith($("<button>").attr("type", "button").addClass("btn btn-danger btn-width").append(fire));
     fire.hide().fadeIn(1500, function(){

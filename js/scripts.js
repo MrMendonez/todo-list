@@ -5,7 +5,7 @@ $(document).ready(function() {
   $(".alert-danger").hide();
 
 
-  // Title Project Name
+  // TITLE PROJECT NAME
   $("#project-name-button").on("click", function(e) {
     e.preventDefault();  // Prevent submit button from submitting text to the page
     var projectName = $("#project-name").val();
@@ -24,17 +24,16 @@ $(document).ready(function() {
     // Rename Project
     $("#project-rename-button").on("click", function(e) {
       e.preventDefault(); // Still not sure what preventDefault does
-      $(".list-title").val("").focus();
+      // $(".list-title").val("").focus();
       $("#project-name").fadeIn(1500);
       $("#project-name-button").fadeIn(1500);
       $("#project-rename-button").delay(1000).fadeOut(500);
     });
-
   });
 
   
 
-  // Add New Task
+  // ADD NEW TASK
   $(".btn-warning").on("click", function(e) {
     e.preventDefault();  // Prevent submit button from submitting text to the page
 
@@ -45,19 +44,19 @@ $(document).ready(function() {
       if($(this).text().trim().toLowerCase() === newTask.toLowerCase()) {
         isDuplicate = true;
         return;
-      }
+      };
     });
     // Runs duplicate entry message
     if(isDuplicate){
       $("#duplicate-msg").slideDown(500);
       return;
-    }
+    };
 
     // Runs empty message
     if(newTask === ""){
       $("#empty-msg").slideDown(500);
       return;
-    }
+    };
 
     // Inserts new row with new task item
     var newRow = $("<tr>");
@@ -80,17 +79,18 @@ $(document).ready(function() {
 
     // Rotating gears icon
     var rotatingGear = $("<i>").addClass("fa fa-cog fa-spin");
-    $(".btn-warning").closest("i").replaceWith($(rotatingGear));
+    $(".btn-warning").replaceWith($("<button>").attr("type", "submit").addClass("btn btn-warning btn-block").append(rotatingGear));
     rotatingGear.hide().fadeIn(1500).delay(500).fadeOut(500, function(){
-      var plusSign = $("<i>").addClass("fa fa-plus").hide().fadeIn(500);
-      $(this).closest("i").replaceWith($(plusSign));
+      var plusSign = $("<i>").addClass("fa fa-plus");
+      $(".btn-warning").replaceWith($("<button>").attr("type", "submit").addClass("btn btn-warning btn-block").append(plusSign));
+      plusSign.hide().fadeIn(500);
     });
     // Commented out until I can figure out why this prevents duplicate message from working and deletes the row it duplicates.
 
   });
   // End add new task
 
-  // Mark complete
+  // MARK COMPLETE
   $("table").on("click", ".unchecked", function(){
     var smileAnimation = $("<i>").addClass("fa fa-smile-o").fadeIn(1000).delay(500).fadeOut(500);
     var check = $("<i>").addClass("fa fa-check-square-o").hide().delay(2000).fadeIn(1000);
@@ -99,7 +99,7 @@ $(document).ready(function() {
     $(".btn-success").parent().prev().css("text-decoration", "line-through");
   });
 
-  // Mark not complete
+  // MARK NOT COMPLETE
   $("table").on("click", ".btn-success", function(){
     var meh = $("<i>").addClass("fa fa-meh-o").fadeIn(1000).delay(500).fadeOut(500);
     var uncheck = $("<i>").addClass("fa fa-square-o").hide().delay(2000).fadeIn(1000);
@@ -107,7 +107,7 @@ $(document).ready(function() {
     $(".unchecked").parent().prev().css("text-decoration", "none");
   });
 
-  // Remove row
+  // REMOVE ROW
   $("table").on("click", ".btn-danger", function() {
     var fire = $("<span>").addClass("glyphicon glyphicon-fire").attr("aria-hidden", "true");
     $(this).replaceWith($("<button>").attr("type", "button").addClass("btn btn-danger btn-width").append(fire));
@@ -121,5 +121,6 @@ $(document).ready(function() {
 
 
 // TO DO LIST (Oh the irony):
-// Why does checked button appear when clicking rename button?
+// Clear text field when renaming
 // Finish gear icon animation
+// Why doesn't rename button not work the second time?

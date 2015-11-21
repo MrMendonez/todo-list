@@ -16,9 +16,9 @@ $(document).ready(function() {
 
     listTitle.replaceWith($("<h3>").addClass("list-title panel-title").append(projectName));
     $(".list-title").hide().fadeIn(1500);
-    $("#project-name").delay(1000).fadeOut(1500);
-    $("#project-name-button").delay(1000).fadeOut(1500);
-    renameButton.hide().delay(2500).fadeIn(1500);
+    $("#project-name").delay(500).fadeOut(1000);
+    $("#project-name-button").delay(500).fadeOut(1000);
+    renameButton.hide().delay(1000).fadeIn(1500);
     $("#rename-placeholder").append(renameButton);
 
     // Rename Project
@@ -78,13 +78,13 @@ $(document).ready(function() {
     });
 
     // Rotating gears icon
-    var rotatingGear = $("<i>").addClass("fa fa-cog fa-spin");
-    $(".btn-warning").replaceWith($("<button>").attr("type", "submit").addClass("btn btn-warning btn-block").append(rotatingGear));
-    rotatingGear.hide().fadeIn(1500).delay(500).fadeOut(500, function(){
-      var plusSign = $("<i>").addClass("fa fa-plus");
-      $(".btn-warning").replaceWith($("<button>").attr("type", "submit").addClass("btn btn-warning btn-block").append(plusSign));
-      plusSign.hide().fadeIn(500);
-    });
+    // var rotatingGear = $("<i>").addClass("fa fa-cog fa-spin");
+    // $(".btn-warning").replaceWith($("<button>").attr("type", "submit").addClass("btn btn-warning btn-block").append(rotatingGear));
+    // rotatingGear.hide().fadeIn(1500).delay(500).fadeOut(500, function(){
+    //   var plusSign = $("<i>").addClass("fa fa-plus");
+    //   $(".btn-warning").replaceWith($("<button>").attr("type", "submit").addClass("btn btn-warning btn-block").append(plusSign));
+    //   plusSign.hide().fadeIn(500);
+    // });
     // Commented out until I can figure out why this prevents duplicate message from working and deletes the row it duplicates.
 
   });

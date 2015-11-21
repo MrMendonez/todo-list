@@ -9,16 +9,34 @@ $(document).ready(function() {
   $("#project-name-button").on("click", function(e) {
     e.preventDefault();  // Prevent submit button from submitting text to the page
     var projectName = $("#project-name").val();
-    var listTitle = $("#list-title");
-    listTitle.replaceWith($("<h3>").attr("id", "list-title").addClass("panel-title").append(projectName));
-    $("#list-title").hide().fadeIn(1500);
+    var listTitle = $(".list-title");
+    var renameButton = $('<button id="project-rename-button" type="submit" class="btn btn-default">Rename Project</button>');
+
+    listTitle.replaceWith($("<h3>").addClass("list-title panel-title").append(projectName));
+    $(".list-title").hide().fadeIn(1500);
+    $("#project-name").delay(1000).fadeOut(1500);
+    $("#project-name-button").delay(1000).fadeOut(1500);
+    renameButton.hide().delay(2500).fadeIn(1500);
+    $(".list-title").append(renameButton);
+
+    // Rename Project
+    $("#project-rename-button").on("click", function(e) {
+      e.preventDefault(); // Still not sure what preventDefault does
+      $(".list-title").val("").focus();
+      $("#project-name").fadeIn(1500);
+      $("#project-name-button").fadeIn(1500);
+      $("#project-rename-button").delay(1500).fadeOut(1500);
+    });
+
   });
+
+
 
   // Add New Task
   $(".btn-warning").on("click", function(e) {
     e.preventDefault();  // Prevent submit button from submitting text to the page
 
-    var newTask = $("#new-task").val().trim();
+    var newTask = $(".new-task").val().trim();
     var isDuplicate = false;
     // Finds duplicate entries
     $("td.word-td").each(function(){
@@ -29,9 +47,16 @@ $(document).ready(function() {
     });
     // Runs duplicate entry message
     if(isDuplicate){
-      $(".alert-danger").slideDown(1000);
+      $("#duplicate-msg").slideDown(1000);
       return;
     }
+
+    // Runs empty message
+    if(newTask === ""){
+      $("#empty-msg").slideDown(1000);
+      return;
+    }
+
     // Inserts new row with new task item
     var newRow = $("<tr>");
     var wordTd = $("<td>").addClass("word-td").append(newTask);
@@ -44,10 +69,10 @@ $(document).ready(function() {
     $("#task-list").append(newRow);
     // Set newTask to become an empty string and clears the input field.
     // Also sets the focus back onto the input field. 
-    $("#new-task").val("").focus();
+    $(".new-task").val("").focus();
 
     // Fade out duplicate entry message when user begins typing again in input field
-    $("#new-task").on("keydown", function() {
+    $(".new-task").on("keydown", function() {
       $(".alert-danger").fadeOut(1000);
     });
 

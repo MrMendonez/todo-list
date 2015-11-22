@@ -14,6 +14,7 @@ $(document).ready(function() {
     renameButton.append("Rename Project");
 
     listTitle.replaceWith($("<h3>").addClass("list-title panel-title").append(projectName));
+    $("#project-name").val("").focus(); // Not sure why this isn't working
     $(".list-title").hide().fadeIn(1500);
     $("#project-name").delay(500).fadeOut(1000);
     $("#project-name-button").delay(500).fadeOut(1000);
@@ -23,7 +24,6 @@ $(document).ready(function() {
     // Rename Project
     $("#project-rename-button").on("click", function(e) {
       e.preventDefault();
-      $(".list-title").val("").focus(); // Not sure why this isn't working
       $("#project-name").fadeIn(1500);
       $("#project-name-button").fadeIn(1500);
       $("#project-rename-button").delay(1000).fadeOut(500);
@@ -72,13 +72,13 @@ $(document).ready(function() {
     });
 
     // Rotating gears icon
-    // var rotatingGear = $("<i>").addClass("fa fa-cog fa-spin");
-    // $(".btn-warning").replaceWith($("<button>").attr("type", "submit").addClass("btn btn-warning btn-block").append(rotatingGear));
-    // rotatingGear.hide().fadeIn(1500).delay(500).fadeOut(500, function(){
-    //   var plusSign = $("<i>").addClass("fa fa-plus");
-    //   $(".btn-warning").replaceWith($("<button>").attr("type", "submit").addClass("btn btn-warning btn-block").append(plusSign));
-    //   plusSign.hide().fadeIn(500);
-    // });
+    var rotatingGear = $("<i>").addClass("fa fa-cog fa-spin");
+    $(".btn-warning").replaceWith($("<button>").attr("type", "submit").addClass("btn btn-warning btn-block").append(rotatingGear));
+    rotatingGear.hide().fadeIn(1500).delay(500).fadeOut(500, function(){
+      var plusSign = $("<i>").addClass("fa fa-plus");
+      $(".btn-warning").replaceWith($("<button>").attr("type", "submit").addClass("btn btn-warning btn-block").append(plusSign));
+      plusSign.hide().fadeIn(500);
+    });
     // Commented out until I can figure out why this prevents duplicate message from working and deletes the row it duplicates.
 
   }); // End add new task
@@ -88,9 +88,9 @@ $(document).ready(function() {
   $("table").on("click", ".unchecked", function(){
     var smileAnimation = $("<i>").addClass("fa fa-smile-o").fadeIn(750).delay(250).fadeOut(500);
     var check = $("<i>").addClass("fa fa-check-square-o").hide().delay(1500).fadeIn(1000);
-
     $(this).replaceWith($("<button>").attr("type", "button").addClass("btn btn-success btn-width").append(smileAnimation).append(check));
     $(".btn-success").parent().prev().css("text-decoration", "line-through").css("color", "#449D44");
+    $(".btn-success").parent().parent().css("success");
   });
 
   // MARK NOT COMPLETE
@@ -115,6 +115,5 @@ $(document).ready(function() {
 });
 
 // TO DO LIST (Oh the irony):
-// Clear text field when renaming
 // Why doesn't rename button not work the second time?
 // Finish gear icon animation

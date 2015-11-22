@@ -79,7 +79,6 @@ $(document).ready(function() {
       $("#gear-icon").replaceWith($(plusSign));
       plusSign.hide().fadeIn(500);
     });
-    // Commented out until I can figure out why this prevents duplicate message from working and deletes the row it duplicates.
 
   }); // End add new task
   
@@ -116,4 +115,3 @@ $(document).ready(function() {
 
 // TO DO LIST (Oh the irony):
 // Why doesn't rename button not work the second time?
-// Finish gear icon animation

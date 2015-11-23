@@ -21,7 +21,7 @@ $(document).ready(function() {
     // Rename Project
     $("#project-rename-button").on("click", function(e) {
       e.preventDefault();
-      $("#project-name").fadeIn(1500);
+      $("#project-name").fadeIn(1500).focus();
       $("#project-name-button").fadeIn(1500);
       $("#project-rename-button").delay(1000).fadeOut(500);
     });

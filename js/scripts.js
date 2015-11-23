@@ -71,7 +71,7 @@ $(document).ready(function() {
     // Rotating gears icon
     var rotatingGear = $("<i>").attr("id", "gear-icon").addClass("fa fa-cog fa-spin");
     $("#plus-icon").replaceWith($(rotatingGear));
-    rotatingGear.hide().fadeIn(500).delay(500).fadeOut(500, function(){
+    rotatingGear.hide().fadeIn(500).fadeOut(500, function(){
       var plusSign = $("<i>").attr("id", "plus-icon").addClass("fa fa-plus");
       $("#gear-icon").replaceWith($(plusSign));
       plusSign.hide().fadeIn(500);

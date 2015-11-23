@@ -44,13 +44,11 @@ $(document).ready(function() {
       $("#duplicate-msg").slideDown(500);
       return;
     };
-
     // Runs empty message
     if(newTask === ""){
       $("#empty-msg").slideDown(500);
       return;
     };
-
     // Inserts new row with new task item
     var newRow = $("<tr>");
     var wordTd = $("<td>").addClass("word-td").append(newTask);

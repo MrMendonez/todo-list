@@ -93,7 +93,7 @@ $(document).ready(function() {
     var meh = $("<i>").addClass("fa fa-meh-o").fadeIn(750).delay(250).fadeOut(500);
     var uncheck = $("<i>").addClass("fa fa-square-o").hide().delay(1500).fadeIn(1000);
     $(this).replaceWith($("<button>").attr("type", "button").addClass("unchecked btn btn-default btn-width").append(meh).append(uncheck));
-    $(".unchecked").parent().prev().css("text-decoration", "none").css("color", "white");
+    $(".unchecked").parent().prev().css("text-decoration", "none").css("color", "#c8c8c8");
   });
 
   // REMOVE ROW

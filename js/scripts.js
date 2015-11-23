@@ -3,23 +3,20 @@
 $(document).ready(function() {
   // Hide duplicate message
   $(".alert-danger").hide();
+  $("#project-rename-button").hide();
 
   // TITLE PROJECT NAME
   $("#project-name-button").on("click", function(e) {
     e.preventDefault();
     var projectName = $("#project-name").val();
     var listTitle = $(".list-title");
-    var renameButton = $("<button>").attr("id", "project-rename-button").attr("type", "submit").addClass("btn btn-default btn-block")
-
-    renameButton.append("Rename Project");
 
     listTitle.replaceWith($("<h3>").addClass("list-title panel-title").append(projectName));
     $("#project-name").val("").focus();
     $(".list-title").hide().fadeIn(1500);
     $("#project-name").delay(500).fadeOut(1000);
     $("#project-name-button").delay(500).fadeOut(1000);
-    renameButton.hide().delay(1000).fadeIn(1500);
-    $("#rename-placeholder").append(renameButton);
+    $("#project-rename-button").delay(500).fadeIn(1000);
 
     // Rename Project
     $("#project-rename-button").on("click", function(e) {
@@ -82,7 +79,6 @@ $(document).ready(function() {
 
   }); // End add new task
   
-
   // MARK COMPLETE
   $("table").on("click", ".unchecked", function(){
     var smileAnimation = $("<i>").addClass("fa fa-smile-o").fadeIn(750).delay(250).fadeOut(500);
@@ -112,6 +108,3 @@ $(document).ready(function() {
     });
   });
 });
-
-// TO DO LIST (Oh the irony):
-// Why doesn't rename button not work the second time?

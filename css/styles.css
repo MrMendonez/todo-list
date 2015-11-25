@@ -1,7 +1,11 @@
-/* Styles for To Do List App */
+dd /* Styles for To Do List App */
 
 .btn-width {
     width: 39px !important;
+}
+
+.table tbody>tr>td.vert-align {
+    vertical-align: middle;
 }
 
 /* Social Media Buttons */

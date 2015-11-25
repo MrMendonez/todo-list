@@ -51,11 +51,11 @@ $(document).ready(function() {
     };
     // Inserts new row with new task item
     var newRow = $("<tr>");
-    var wordTd = $("<td>").addClass("word-td").append(newTask);
+    var wordTd = $("<td>").addClass("word-td vert-align").append(newTask);
     var completedBtn = $("<button>").addClass("unchecked btn btn-default").append('<i class="fa fa-square-o">');
-    var completedTd = $("<td>").append(completedBtn);
+    var completedTd = $("<td>").addClass("vert-align").append(completedBtn);
     var deleteBtn = $("<button>").addClass("btn btn-danger").append('<i class="fa fa-trash-o"></i>');
-    var deleteTd = $("<td>").append(deleteBtn);
+    var deleteTd = $("<td>").addClass("vert-align").append(deleteBtn);
 
     newRow.append(wordTd).append(completedTd).append(deleteTd).hide().fadeIn(2000);
     $("#task-list").append(newRow);
